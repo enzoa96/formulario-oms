@@ -10,78 +10,55 @@
   <body>
     <div style="display: flex; justify-content: center; margin-top: 20vh">
       <div class="card w-50 position-fixed">
-        <div class="card-header">Configuracion OMS</div>
+        <div class="card-header" style="background-color: red; color: white">
+          Configuracion OMS
+        </div>
         <div class="card-body">
           <h5 class="card-title text-center">Configuracion OMS</h5>
           <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
             <li class="nav-item" role="presentation">
               <button
                 class="nav-link active"
-                id="pills-home-tab"
+                id="pills-g1-tab"
                 data-bs-toggle="pill"
-                data-bs-target="#pills-home"
+                data-bs-target="#grupo1"
                 type="button"
                 role="tab"
-                aria-controls="pills-home"
-                aria-selected="true"
               >
-                Home
+                Grupo 1
               </button>
             </li>
             <li class="nav-item" role="presentation">
               <button
                 class="nav-link"
-                id="pills-profile-tab"
+                id="pills-g2-tab"
                 data-bs-toggle="pill"
-                data-bs-target="#pills-profile"
+                data-bs-target="#grupo2"
                 type="button"
                 role="tab"
-                aria-controls="pills-profile"
-                aria-selected="false"
               >
-                Profile
+                Grupo 2
               </button>
             </li>
             <li class="nav-item" role="presentation">
               <button
                 class="nav-link"
-                id="pills-contact-tab"
+                id="pills-g3-tab"
                 data-bs-toggle="pill"
-                data-bs-target="#pills-contact"
+                data-bs-target="#grupo3"
                 type="button"
                 role="tab"
-                aria-controls="pills-contact"
-                aria-selected="false"
               >
-                Contact
+                Grupo 3
               </button>
             </li>
           </ul>
           <div class="tab-content" id="pills-tabContent">
-            <div
-              class="tab-pane fade show active"
-              id="pills-home"
-              role="tabpanel"
-              aria-labelledby="pills-home-tab"
-            >
-              Home
+            <div class="tab-pane fade show active" id="grupo1" role="tabpanel">
+              Grupo1
             </div>
-            <div
-              class="tab-pane fade"
-              id="pills-profile"
-              role="tabpanel"
-              aria-labelledby="pills-profile-tab"
-            >
-              Profile
-            </div>
-            <div
-              class="tab-pane fade"
-              id="pills-contact"
-              role="tabpanel"
-              aria-labelledby="pills-contact-tab"
-            >
-              Contact
-            </div>
+            <div class="tab-pane fade" id="grupo2" role="tabpanel">Grupo2</div>
+            <div class="tab-pane fade" id="grupo3" role="tabpanel">Grupo3</div>
           </div>
         </div>
       </div>

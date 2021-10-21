@@ -1,68 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+<div class="form-container">
+  <div class="card">
+    <div class="card-header">Configuracion OMS</div>
 
-    <title>Hello, world!</title>
-  </head>
-  <body>
-    <div style="display: flex; justify-content: center; margin-top: 20vh">
-      <div class="card w-50 position-fixed">
-        <div class="card-header" style="background-color: red; color: white">
-          Configuracion OMS
-        </div>
-        <div class="card-body">
-          <h5 class="card-title text-center">Configuracion OMS</h5>
+    <div class="card-body">
+      <h5 class="card-title text-center">Configuracion OMS</h5>
 
-          <nav>
-            <div class="nav nav-tabs" id="nav-tab" role="tablist">
-              <button
-                class="nav-link active"
-                id="nav-g1-tab"
-                data-bs-toggle="tab"
-                data-bs-target="#nav-g1"
-                type="button"
-                role="tab"
-              >
-                Grupo 1
-              </button>
-              <button
-                class="nav-link"
-                id="nav-g2-tab"
-                data-bs-toggle="tab"
-                data-bs-target="#nav-g2"
-                type="button"
-                role="tab"
-              >
-                Grupo 2
-              </button>
-              <button
-                class="nav-link"
-                id="nav-g3-tab"
-                data-bs-toggle="tab"
-                data-bs-target="#nav-g3"
-                type="button"
-                role="tab"
-              >
-                Grupo 3
-              </button>
-            </div>
-          </nav>
-          <div class="tab-content" id="nav-tabContent">
-            <div class="tab-pane fade show active" id="nav-g1" role="tabpanel">
-              <app-table></app-table>
-            </div>
-            <div class="tab-pane fade" id="nav-g2" role="tabpanel">
-              <app-table></app-table>
-            </div>
-            <div class="tab-pane fade" id="nav-g3" role="tabpanel">
-              <app-table></app-table>
-            </div>
-          </div>
-        </div>
-      </div>
+      <tabset>
+        <tab
+          *ngFor="let group of groups"
+          [heading]="group.grupo"
+          [active]="group.active"
+          (selectTab)="group.active = true"
+          (deselect)="group.active = false"
+          [disabled]="group.disabled"
+          [removable]="group.removable"
+          customClass="pestañas"
+        >
+          <app-table [group]="group" [onSave]="saveGroups.bind(this)"></app-table>
+        </tab>
+      </tabset>
     </div>
-  </body>
-</html>
+  </div>
+</div>

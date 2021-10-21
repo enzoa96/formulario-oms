@@ -1,0 +1,18 @@
+.form-container {
+  display: flex;
+  justify-content: center;
+  margin: 20vh 0vh;
+}
+
+.nav-tabs {
+  background-color: red !important;
+}
+
+.card {
+    max-width: 80%;
+}
+
+.card-header {
+  background-color: red;
+  color: white;
+}

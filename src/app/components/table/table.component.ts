@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ReqResResponse } from 'src/app/models/reqres-response';
 import { ListService } from 'src/app/services/list.service';
 
 @Component({
@@ -9,9 +10,12 @@ import { ListService } from 'src/app/services/list.service';
 export class TableComponent implements OnInit {
   constructor(private listService: ListService) {}
 
+  public usuarios: any = [];
+
   ngOnInit(): void {
-    this.listService.cargarList().subscribe((resp) => {
-      console.log(resp);
+    this.listService.cargarList().subscribe((usuarios) => {
+      console.log(usuarios);
+      this.usuarios = usuarios;
     });
   }
 }

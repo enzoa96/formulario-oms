@@ -7,19 +7,10 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
+    <tr *ngFor="let usuario of usuarios">
+      <td>{{ usuario.first_name }}</td>
+      <td>{{ usuario.email }}</td>
+      <td><img [src]="usuario.avatar" /></td>
     </tr>
   </tbody>
 </table>

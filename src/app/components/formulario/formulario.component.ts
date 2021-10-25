@@ -22,9 +22,8 @@ export class FormularioComponent implements OnInit {
 
   // Cuando presione Guardar en el componente hijo table.component.ts
   saveGroups() {
-    console.log(this.groups);
-    console.log(
-      'Acá se debería hacer el post a la API para guardar this.groups'
-    );
+    this.listService.guardar(this.groups).subscribe((data) => {
+      console.log(data);
+    });
   }
 }

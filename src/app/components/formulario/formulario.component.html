@@ -16,7 +16,10 @@
           [removable]="group.removable"
           customClass="pestañas"
         >
-          <app-table [group]="group" [onSave]="saveGroups.bind(this)"></app-table>
+          <app-table
+            [group]="group"
+            [onSave]="saveGroups.bind(this)"
+          ></app-table>
         </tab>
       </tabset>
     </div>

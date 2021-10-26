@@ -10,24 +10,10 @@
   <tbody>
     <tr *ngFor="let elemento of group.elementos">
       <td data-label="Codigo">
-        <input
-          class="form-control"
-          name="codigo"
-          *ngIf="editMode"
-          value="{{ elemento.codigo }}"
-          (keyup)="onKey($event, elemento)"
-        />
-        <span *ngIf="!editMode">{{ elemento.codigo }}</span>
+        <span>{{ elemento.codigo }}</span>
       </td>
       <td data-label="Descripcion">
-        <input
-          class="form-control"
-          name="descripcion"
-          *ngIf="editMode"
-          value="{{ elemento.descripcion }}"
-          (keyup)="onKey($event, elemento)"
-        />
-        <span *ngIf="!editMode">{{ elemento.descripcion }}</span>
+        <span>{{ elemento.descripcion }}</span>
       </td>
       <td data-label="Valor">
         <input

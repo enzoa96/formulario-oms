@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Group, Elemento } from 'src/app/models';
+import { Group, Elemento } from 'src/app/components/models';
 
 @Component({
   selector: 'app-table',
@@ -13,37 +13,6 @@ export class TableComponent implements OnInit {
   @Input() onSave!: () => void; // Callback para notificar al componente padre que queremos guardar todos los grupos
 
   private editedElements: any[] = [];
-
-  // Cuando presiona el boton grabar
-  Grabar() {
-    for (let element of this.group.elementos) {
-      if ((element as any).original) {
-        delete (element as any).original;
-      }
-    }
-
-    this.onSave();
-    this.editedElements = [];
-  }
-
-  // Cuando presiona el boton cancelar
-  Cancelar() {
-    // Deshacer modificaciones
-    for (let element of this.group.elementos) {
-      const original = (element as any).original;
-
-      if (original) {
-        element.codigo = original.codigo;
-        element.descripcion = original.descripcion;
-        element.valor = original.valor;
-        delete (element as any).original;
-      }
-    }
-
-    this.editedElements = [];
-
-    this.onSave();
-  }
 
   // Cuando el usuario escribe en un input
   onKey(event: any, elemento: any) {

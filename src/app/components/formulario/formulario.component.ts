@@ -1,6 +1,7 @@
+import { FunctionExpr } from '@angular/compiler';
 import { Component, Input, OnInit } from '@angular/core';
 import { Group } from 'src/app/components/models';
-import { ListService } from 'src/app/services/list.service';
+import { ListService } from 'src/app/components/services/list.service';
 
 @Component({
   selector: 'app-formulario',
@@ -30,25 +31,32 @@ export class FormularioComponent implements OnInit {
   @Input() group!: Group; // Grupo que nos pasa el componente padre para renderizar sus elementos
 
   // Cuando presiona el boton grabar
-  Grabar() {
-    for (let element of this.group.elementos) {
-      if ((element as any).original) {
-        delete (element as any).original;
+
+  async Grabar() {
+    for (let group of this.groups) {
+      for (let element of group.elementos) {
+        if ((element as any).original) delete (element as any).original;
       }
     }
+
+    await this.saveGroups();
+    location.reload();
   }
 
   // Cuando presiona el boton cancelar
   Cancelar() {
+    console.log(this.groups);
     // Deshacer modificaciones
-    for (let element of this.group.elementos) {
-      const original = (element as any).original;
+    for (let group of this.groups) {
+      for (let element of group.elementos) {
+        const original = (element as any).original;
 
-      if (original) {
-        element.codigo = original.codigo;
-        element.descripcion = original.descripcion;
-        element.valor = original.valor;
-        delete (element as any).original;
+        if (original) {
+          element.codigo = original.codigo;
+          element.descripcion = original.descripcion;
+          element.valor = original.valor;
+          delete (element as any).original;
+        }
       }
     }
   }

@@ -12,7 +12,6 @@ export class TableComponent implements OnInit {
   @Input() group!: Group; // Grupo que nos pasa el componente padre para renderizar sus elementos
   @Input() onSave!: () => void; // Callback para notificar al componente padre que queremos guardar todos los grupos
 
-  editMode = false;
   private editedElements: any[] = [];
 
   // Cuando presiona el boton grabar
@@ -25,7 +24,6 @@ export class TableComponent implements OnInit {
 
     this.onSave();
     this.editedElements = [];
-    this.editMode = false;
   }
 
   // Cuando presiona el boton cancelar
@@ -43,7 +41,7 @@ export class TableComponent implements OnInit {
     }
 
     this.editedElements = [];
-    this.editMode = false;
+
     this.onSave();
   }
 
